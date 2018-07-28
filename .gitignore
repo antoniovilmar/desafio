@@ -1,0 +1,17 @@
+**.iws
+**.ipr
+**.project
+**.classpath
+**.class
+**.jar
+!gradle-wrapper.jar
+**.log
+**.orig
+*.iml
+.settings/
+.gradle/
+.metadata/
+.idea/
+bin/
+build/
+out/
