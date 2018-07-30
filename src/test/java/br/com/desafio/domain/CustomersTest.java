@@ -1,5 +1,7 @@
 package br.com.desafio.domain;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +19,7 @@ public class CustomersTest {
     customers.addCnpj(CNPJ_CUSTOMER_TWO);
     customers.addCnpj(CNPJ_CUSTOMER_THREE);
 
-    Assert.assertEquals(3, customers.getNumberOfCustomers());
+    assertEquals(3, customers.getNumberOfCustomers());
   }
 
   @Test
@@ -27,7 +29,7 @@ public class CustomersTest {
     customers.addCnpj(CNPJ_CUSTOMER_ONE);
     customers.addCnpj(CNPJ_CUSTOMER_ONE);
 
-    Assert.assertEquals(1, customers.getNumberOfCustomers());
+    assertEquals(1, customers.getNumberOfCustomers());
   }
 
   @Test
@@ -35,7 +37,15 @@ public class CustomersTest {
 
     var customers = new Customers();
 
-    Assert.assertEquals(0, customers.getNumberOfCustomers());
+    assertEquals(0, customers.getNumberOfCustomers());
+  }
+
+  @Test
+  public void shouldDisplayTheReportMessageContainingOneCustomer(){
+    var customers = new Customers();
+    customers.addCnpj(CNPJ_CUSTOMER_ONE);
+
+    assertEquals("Amount of customers in the input file: 1", customers.toString());
   }
 
 }

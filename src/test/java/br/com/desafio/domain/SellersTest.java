@@ -1,5 +1,7 @@
 package br.com.desafio.domain;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +19,7 @@ public class SellersTest {
     sellers.addCpf(CPF_SALESMAN_TWO);
     sellers.addCpf(CPF_SALESMAN_THREE);
 
-    Assert.assertEquals(3, sellers.getNumberOfSellers());
+    assertEquals(3, sellers.getNumberOfSellers());
   }
 
   @Test
@@ -27,7 +29,7 @@ public class SellersTest {
     sellers.addCpf(CPF_SALESMAN_ONE);
     sellers.addCpf(CPF_SALESMAN_ONE);
 
-    Assert.assertEquals(1, sellers.getNumberOfSellers());
+    assertEquals(1, sellers.getNumberOfSellers());
   }
 
   @Test
@@ -35,7 +37,15 @@ public class SellersTest {
 
     var sellers = new Sellers();
 
-    Assert.assertEquals(0, sellers.getNumberOfSellers());
+    assertEquals(0, sellers.getNumberOfSellers());
+  }
+
+  @Test
+  public void shouldDisplayTheReportMessageContainingOneSeller(){
+    var sellers = new Sellers();
+    sellers.addCpf(CPF_SALESMAN_ONE);
+
+    assertEquals("Amount of clients in the input file: 1", sellers.toString());
   }
 
 }
