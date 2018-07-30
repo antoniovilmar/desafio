@@ -24,7 +24,7 @@ public class FileRepositoryTest extends BaseTest {
   public void shouldReturnOneFile() throws IOException {
     fileRepository = spy(fileRepository);
     when(fileRepository.getInputFilePath()).thenReturn(this.getResourceLocal("mockFiles"));
-    final List<File> files = fileRepository.findAll();
+    final List<File> files = fileRepository.findAllFiles();
 
     Assert.assertEquals(1, files.size());
   }

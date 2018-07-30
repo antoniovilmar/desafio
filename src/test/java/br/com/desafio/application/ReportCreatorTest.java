@@ -17,13 +17,7 @@ public class ReportCreatorTest extends BaseTest {
 
   @Test
   public void name() throws IOException {
-    fileRepository = new FileRepository();
-    fileRepository = spy(fileRepository);
-    when(fileRepository.getInputFilePath()).thenReturn(this.getResourceLocal("mockFiles"));
-    final List<File> files = fileRepository.findAll();
 
-    ReportCreator reportCreator = new ReportCreator();
-    reportCreator.create(files);
 
 
   }

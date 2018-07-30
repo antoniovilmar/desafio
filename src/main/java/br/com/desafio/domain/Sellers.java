@@ -18,4 +18,9 @@ public class Sellers implements IDataReport {
   public int getNumberOfSellers() {
     return this.sellersCpf.size();
   }
+
+  @Override
+  public String toString() {
+    return "Amount of clients in the input file: "+this.getNumberOfSellers();
+  }
 }

@@ -18,4 +18,9 @@ public class Customers implements IDataReport {
   public void addCnpj(String cnpj) {
     this.customersCnpj.add(cnpj);
   }
+
+  @Override
+  public String toString() {
+    return "Amount of customers in the input file: "+this.getNumberOfCustomers();
+  }
 }

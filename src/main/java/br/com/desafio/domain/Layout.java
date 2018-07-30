@@ -4,6 +4,7 @@ import static java.util.Arrays.stream;
 
 import br.com.desafio.domain.exception.LayoutNotFoundException;
 import br.com.desafio.domain.factory.IReportDataFactory;
+import br.com.desafio.domain.factory.ReportCustomersDataFactory;
 import br.com.desafio.domain.factory.ReportSellersDataFactory;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public enum Layout {
   DOIS("002") {
     @Override
     protected Optional<IReportDataFactory> getFactory() {
-      return Optional.empty();
+      return Optional.of(new ReportCustomersDataFactory());
     }
   },
   TRES("003") {
@@ -36,7 +37,9 @@ public enum Layout {
 
   public static Optional<IReportDataFactory> solveFactory(String dataLine) {
     final var id = dataLine.substring(0, 3);
-    return stream(Layout.values()).filter(l -> l.id.equals(id)).reduce((a, b) -> {return a;}).orElseThrow(
+    return stream(Layout.values()).filter(l -> l.id.equals(id)).reduce((a, b) -> {
+      return a;
+    }).orElseThrow(
         LayoutNotFoundException::new).getFactory();
   }
 

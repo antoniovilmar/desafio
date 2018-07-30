@@ -1,6 +1,5 @@
 package br.com.desafio.domain.factory;
 
-
 import br.com.desafio.domain.Sellers;
 import java.lang.System.Logger.Level;
 import java.util.List;
@@ -13,7 +12,7 @@ public class ReportSellersDataFactory implements IReportDataFactory<Sellers> {
   @Override
   public Sellers create(String line) {
     final var sellersReport = new Sellers();
-    final var sellersLine = List.of(line.split(" "));
+    final var sellersLine = List.of(line.split("( )0"));
     sellersLine.forEach(seller -> {
       final var sellerData = seller.split("ç");
       try{
