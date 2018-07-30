@@ -1,5 +1,6 @@
 package br.com.desafio.domain;
 
+import br.com.desafio.domain.factory.ReportSellersDataFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

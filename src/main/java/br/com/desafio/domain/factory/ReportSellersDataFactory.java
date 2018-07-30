@@ -1,6 +1,7 @@
-package br.com.desafio.domain;
+package br.com.desafio.domain.factory;
 
 
+import br.com.desafio.domain.Sellers;
 import java.lang.System.Logger.Level;
 import java.util.List;
 

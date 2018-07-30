@@ -2,6 +2,9 @@ package br.com.desafio.domain;
 
 import static java.util.Arrays.stream;
 
+import br.com.desafio.domain.exception.LayoutNotFoundException;
+import br.com.desafio.domain.factory.IReportDataFactory;
+import br.com.desafio.domain.factory.ReportSellersDataFactory;
 import java.util.Optional;
 
 public enum Layout {
@@ -33,7 +36,8 @@ public enum Layout {
 
   public static Optional<IReportDataFactory> solveFactory(String dataLine) {
     final var id = dataLine.substring(0, 3);
-    return stream(Layout.values()).filter(l -> l.id.equals(id)).reduce((a, b) -> {return a;}).orElseThrow(LayoutNotFoundException::new).getFactory();
+    return stream(Layout.values()).filter(l -> l.id.equals(id)).reduce((a, b) -> {return a;}).orElseThrow(
+        LayoutNotFoundException::new).getFactory();
   }
 
   protected abstract Optional<IReportDataFactory> getFactory();
