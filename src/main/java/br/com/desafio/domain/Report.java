@@ -22,14 +22,15 @@ public class Report {
 
   public List<IDataReport> getDataReport() {
     this.dataReport.stream().filter(data -> nonNull(data.group())).findFirst()
-        .ifPresent(dataGroup ->{
+        .ifPresent(dataGroup -> {
           final IGroupDataReport group = dataGroup.group();
           this.dataReport.stream().filter(data -> nonNull(data.group())).forEach(dataReport1 -> {
             group.add(dataReport1);
           });
           this.addDataReport(group);
         });
-    return dataReport.stream().filter(data -> nonNull(data.toString())).collect(Collectors.toList());
+    return dataReport.stream().filter(data -> nonNull(data.toString()))
+        .collect(Collectors.toList());
   }
 
   public String getFilename() {

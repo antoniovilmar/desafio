@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FileRepository extends BaseFileRepository {
+public class FileRepository extends BaseFileRepository implements IFileRepository {
 
   private static System.Logger LOGGER = System.getLogger(FileRepository.class.getName());
 
@@ -29,13 +29,13 @@ public class FileRepository extends BaseFileRepository {
     }
   }
 
-  public void saveReport(Report report){
+  public void saveReport(Report report) {
     try {
       var file = new File(getOutputFilePath().concat("/").concat(report.getFilename()));
       var fileWriter = new FileWriter(file);
       var writer = new BufferedWriter(fileWriter);
 
-      for(IDataReport dataReport : report.getDataReport()){
+      for (IDataReport dataReport : report.getDataReport()) {
         writer.write(dataReport.toString());
         writer.newLine();
       }
@@ -43,7 +43,7 @@ public class FileRepository extends BaseFileRepository {
       writer.flush();
       writer.close();
 
-    }catch(IOException e){
+    } catch (IOException e) {
       LOGGER.log(Level.ERROR, "Output folder does not exist: %HOMEPATH%/data/out");
     }
   }

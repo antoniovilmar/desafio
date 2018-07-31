@@ -40,7 +40,7 @@ public class CustomersTest {
   }
 
   @Test
-  public void shouldDisplayTheReportMessageContainingOneCustomer(){
+  public void shouldDisplayTheReportMessageContainingOneCustomer() {
     var customers = new Customers();
     customers.addCnpj(CNPJ_CUSTOMER_ONE);
 

@@ -10,17 +10,16 @@ public class SalesPerSeller implements IDataReport {
   private String salesman;
   private BigDecimal totalValue;
 
-  @Override
-  public IGroupDataReport group() {
-    return new Sales();
-  }
-
   public SalesPerSeller(long id, String salesman) {
     this.id = id;
     this.salesman = salesman;
     this.totalValue = BigDecimal.ZERO;
   }
 
+  @Override
+  public IGroupDataReport group() {
+    return new Sales();
+  }
 
   public void addSale(BigDecimal quantity, BigDecimal price) {
     this.totalValue = this.totalValue.add(quantity.multiply(price));

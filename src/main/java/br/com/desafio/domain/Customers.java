@@ -21,6 +21,6 @@ public class Customers implements IDataReport {
 
   @Override
   public String toString() {
-    return "Amount of customers in the input file: "+this.getNumberOfCustomers();
+    return "Amount of customers in the input file: " + this.getNumberOfCustomers();
   }
 }

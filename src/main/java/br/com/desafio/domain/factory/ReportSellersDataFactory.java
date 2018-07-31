@@ -15,10 +15,10 @@ public class ReportSellersDataFactory implements IReportDataFactory<Sellers> {
     final var sellersLine = List.of(line.split("( )0"));
     sellersLine.forEach(seller -> {
       final var sellerData = seller.split("ç");
-      try{
+      try {
         sellersReport.addCpf(sellerData[CPF_POSITION]);
-      }catch(ArrayIndexOutOfBoundsException e){
-        LOGGER.log(Level.WARNING, "Seller was not found"+sellerData);
+      } catch (ArrayIndexOutOfBoundsException e) {
+        LOGGER.log(Level.WARNING, "Seller was not found" + sellerData);
       }
 
     });

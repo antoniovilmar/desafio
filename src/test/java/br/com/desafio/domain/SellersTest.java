@@ -40,7 +40,7 @@ public class SellersTest {
   }
 
   @Test
-  public void shouldDisplayTheReportMessageContainingOneSeller(){
+  public void shouldDisplayTheReportMessageContainingOneSeller() {
     var sellers = new Sellers();
     sellers.addCpf(CPF_SALESMAN_ONE);
 
