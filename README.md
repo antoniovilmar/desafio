@@ -14,7 +14,7 @@
 
 %HOMEPATH%/data/out
 
-# O que faltou por causa do tempo
+# Gostaria de ter explorado mais, mas faltou tempo:
 
 - Multithreading para o processamento de diversos arquivos.
 - Docker
