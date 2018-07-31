@@ -1,22 +1,28 @@
-# desafio
+# Desafio
 
-- Foi utilizado JDK10
+# Pré requisitos
+- JDK10
 - Gradle
-- Start através do ApplicationStart.java
 
-Ficou faltando:
+# Instrução
 
-- Thread para manter a aplicação em pé buscando novos arquivos na pasta e processar de forma paralela a pilha 
-de arquivos (Gostaria de explorar alguns recursos do java 9)
-- Docker
-- Teste Stress
-
-E dois pontos do relatório:
-- ID of the most expensive sale
-- Worst salesman ever
-
-Diretórios que devem ser criados:
+- Start através do: ApplicationStart.java
+- Rodar teste: clean test
+- Diretórios que devem ser criados:
 
 %HOMEPATH%/data/in
 
 %HOMEPATH%/data/out
+
+# O que faltou por causa do tempo
+
+- Multithreading para o processamento de diversos arquivos.
+- Docker
+- Teste Stress
+- Refatoração parte de grupos por linha, algumas concatenações, constantes e extração para um serviço que faz os splits (Acabou replicando e cada fabrica este código)
+
+# Observações
+
+Não utilizei nenhum framework externo (exceto para testes), segui o enunciado e tentei explorar a lógica:
+
+* Código Limpo * Simplicidade * Lógica * SOC (Separação de Preocupações) * Flexibilidade / Extensibilidade *
