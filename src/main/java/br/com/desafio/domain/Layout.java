@@ -5,6 +5,7 @@ import static java.util.Arrays.stream;
 import br.com.desafio.domain.exception.LayoutNotFoundException;
 import br.com.desafio.domain.factory.IReportDataFactory;
 import br.com.desafio.domain.factory.ReportCustomersDataFactory;
+import br.com.desafio.domain.factory.ReportSalesPerSellerDataFactory;
 import br.com.desafio.domain.factory.ReportSellersDataFactory;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public enum Layout {
   TRES("003") {
     @Override
     protected Optional<IReportDataFactory> getFactory() {
-      return Optional.empty();
+      return Optional.of(new ReportSalesPerSellerDataFactory());
     }
   };
 

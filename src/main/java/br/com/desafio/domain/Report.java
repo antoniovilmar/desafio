@@ -1,7 +1,10 @@
 package br.com.desafio.domain;
 
+import static java.util.Objects.nonNull;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Report {
 
@@ -18,7 +21,15 @@ public class Report {
   }
 
   public List<IDataReport> getDataReport() {
-    return dataReport;
+    this.dataReport.stream().filter(data -> nonNull(data.group())).findFirst()
+        .ifPresent(dataGroup ->{
+          final IGroupDataReport group = dataGroup.group();
+          this.dataReport.stream().filter(data -> nonNull(data.group())).forEach(dataReport1 -> {
+            group.add(dataReport1);
+          });
+          this.addDataReport(group);
+        });
+    return dataReport.stream().filter(data -> nonNull(data.toString())).collect(Collectors.toList());
   }
 
   public String getFilename() {
